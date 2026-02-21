@@ -85,7 +85,7 @@ def parse_csv_file(input_file):
         
         try:
             dialect = csv.Sniffer().sniff(sample)
-        except:
+        except (csv.Error, Exception):
             dialect = csv.excel
         
         reader = csv.reader(f, dialect)
@@ -222,11 +222,11 @@ def convert_contacts_to_phrases(input_file, output_file):
         # 尝试自动检测
         try:
             contacts = parse_vcf_file(input_file)
-        except:
+        except (ValueError, UnicodeDecodeError, Exception) as vcf_error:
             try:
                 contacts = parse_csv_file(input_file)
-            except:
-                raise ValueError('无法识别的文件格式，请使用.vcf或.csv文件')
+            except (ValueError, UnicodeDecodeError, Exception) as csv_error:
+                raise ValueError(f'无法识别的文件格式，请使用.vcf或.csv文件。VCF错误: {vcf_error}, CSV错误: {csv_error}')
     
     if not contacts:
         raise ValueError('没有找到有效的联系人数据')
