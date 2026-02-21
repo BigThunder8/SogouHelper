@@ -85,7 +85,7 @@ def parse_csv_file(input_file):
         
         try:
             dialect = csv.Sniffer().sniff(sample)
-        except (csv.Error, Exception):
+        except Exception:
             dialect = csv.excel
         
         reader = csv.reader(f, dialect)
