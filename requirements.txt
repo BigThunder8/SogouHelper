@@ -1,0 +1,3 @@
+# Optional dependencies
+# The tool works without these, but pypinyin provides better Chinese pinyin conversion
+pypinyin>=0.44.0

@@ -1,0 +1,15 @@
+# PC端自定义短语示例文件
+# 格式1: abbreviation,N=phrase
+email,1=example@email.com
+addr,1=北京市朝阳区xxx路xxx号
+tel,1=13800138000
+
+# 格式2: abbreviation=phrase
+dz=地址
+yx=邮箱
+dh=电话
+
+# 格式3: abbreviation phrase (空格分隔)
+wx 微信
+qq QQ号码
+zfb 支付宝
